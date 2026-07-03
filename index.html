@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Строй с Характером — Ремонт квартир и домов под ключ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            scroll-behavior: smooth;
+        }
+        .text-orange { color: #FF6B1A; }
+        .bg-orange { background-color: #FF6B1A; }
+        .border-orange { border-color: #FF6B1A; }
+        
+        .hero-gradient {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.pexels.com/photos/36601408/pexels-photo-36601408.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=2000');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .dashed-line {
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.2) 50%, transparent 50%);
+            background-position: bottom;
+            background-size: 10px 1px;
+            background-repeat: repeat-x;
+        }
+
+        .grid-bg {
+            background-image: radial-gradient(circle, #333 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #FF6B1A;
+        }
+
+        .mobile-menu {
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="fixed w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="font-extrabold text-xl leading-tight">
+                    СТРОЙ <br> <span class="text-orange">С ХАРАКТЕРОМ</span>
+                </div>
+                <div class="hidden md:block h-8 w-px bg-white/20 mx-4"></div>
+                <div class="hidden md:block text-[10px] uppercase tracking-widest text-gray-400">
+                    Ремонт квартир <br> и домов под ключ
+                </div>
+            </div>
+
+            <nav class="hidden lg:flex gap-8 text-xs font-semibold uppercase tracking-wider">
+                <a href="#about" class="hover:text-orange transition">О нас</a>
+                <a href="#services" class="hover:text-orange transition">Услуги</a>
+                <a href="#projects" class="hover:text-orange transition">Проекты</a>
+                <a href="#process" class="hover:text-orange transition">Как мы работаем</a>
+                <a href="#reviews" class="hover:text-orange transition">Отзывы</a>
+                <a href="#contacts" class="hover:text-orange transition">Контакты</a>
+            </nav>
+
+            <div class="flex items-center gap-6">
+                <div class="hidden sm:flex flex-col items-end">
+                    <a href="tel:+74951202535" class="font-bold text-lg hover:text-orange transition">+7 (495) 120-25-35</a>
+                    <a href="#" class="text-orange text-xs border-b border-orange/30 hover:border-orange">Перезвоните мне</a>
+                </div>
+                <button id="menuBtn" class="lg:hidden p-2">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="fixed inset-0 bg-black z-[60] flex flex-col items-center justify-center gap-8 text-2xl font-bold translate-x-full mobile-menu lg:hidden">
+        <button id="closeMenu" class="absolute top-6 right-6 p-2">
+            <i data-lucide="x" class="w-8 h-8"></i>
+        </button>
+        <a href="#about" class="mobile-link">О нас</a>
+        <a href="#services" class="mobile-link">Услуги</a>
+        <a href="#projects" class="mobile-link">Проекты</a>
+        <a href="#process" class="mobile-link">Как мы работаем</a>
+        <a href="#reviews" class="mobile-link">Отзывы</a>
+        <a href="#contacts" class="mobile-link">Контакты</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center pt-20 hero-gradient">
+        <div class="container mx-auto px-4 z-10">
+            <div class="max-w-3xl">
+                <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
+                    РЕМОНТ, <br> КОТОРЫЙ <br> <span class="text-orange">ВЫГЛЯДИТ ДОРОГО</span>
+                </h1>
+                <p class="text-lg text-gray-300 mb-10 max-w-xl">
+                    Делаем качественный ремонт квартир и домов под ключ — от дизайн-проекта до финальной отделки. Соблюдаем сроки и смету. Гарантия на все работы.
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
+                    <div class="flex items-start gap-3">
+                        <div class="text-orange"><i data-lucide="shield-check"></i></div>
+                        <div class="text-xs uppercase font-bold tracking-wider">Гарантия <br> до 5 лет</div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="text-orange"><i data-lucide="calendar"></i></div>
+                        <div class="text-xs uppercase font-bold tracking-wider">Точно в срок <br> или вернем 5%</div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="text-orange"><i data-lucide="file-text"></i></div>
+                        <div class="text-xs uppercase font-bold tracking-wider">Фиксируем смету <br> в договоре</div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button class="bg-orange hover:bg-orange/90 text-white font-bold py-5 px-10 uppercase tracking-widest text-sm transition shadow-lg shadow-orange/20">
+                        Рассчитать стоимость
+                    </button>
+                    <button class="border-2 border-white/30 hover:border-white text-white font-bold py-5 px-10 uppercase tracking-widest text-sm transition">
+                        Вызвать замерщика
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vertical Text Accent -->
+        <div class="hidden xl:block absolute right-12 bottom-24 text-gray-500 uppercase text-xs font-bold tracking-[0.3em] [writing-mode:vertical-lr] rotate-180">
+            Честность / Качество / Ответственность
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-[#1a1a1a]">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+                <div>
+                    <h2 class="text-4xl font-extrabold uppercase mb-6 tracking-tight">Направления <br> <span class="text-orange">работ</span></h2>
+                    <p class="text-gray-400 max-w-sm">Выполняем все виды работ — от черновых до финальной отделки. Работаем по СНиП и современным стандартам.</p>
+                </div>
+                <a href="#" class="text-orange uppercase text-xs font-bold tracking-widest flex items-center gap-2 group">
+                    Смотреть все услуги <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
+                <!-- Service Cards -->
+                <div class="group cursor-pointer">
+                    <div class="relative h-64 overflow-hidden mb-4">
+                        <img src="https://images.pexels.com/photos/16552843/pexels-photo-16552843.jpeg?auto=compress&cs=tinysrgb&h=400&w=300" alt="Квартирный ремонт" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500">
+                    </div>
+                    <div class="flex items-center gap-3 mb-2">
+                        <i data-lucide="home" class="w-6 h-6 text-orange"></i>
+                        <h3 class="font-bold text-xs uppercase tracking-wider">Квартирный ремонт</h3>
+                    </div>
+                </div>
+
+                <div class="group cursor-pointer">
+                    <div class="relative h-64 overflow-hidden mb-4">
+                        <img src="https://images.pexels.com/photos/16552841/pexels-photo-16552841.jpeg?auto=compress&cs=tinysrgb&h=400&w=300" alt="Ремонт под ключ" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500">
+                    </div>
+                    <div class="flex items-center gap-3 mb-2">
+                        <i data-lucide="key" class="w-6 h-6 text-orange"></i>
+                        <h3 class="font-bold text-xs uppercase tracking-wider">Ремонт под ключ</h3>
+                    </div>
+                </div>
+
+                <div class="group cursor-pointer">
+                    <div class="relative h-64 overflow-hidden mb-4">
+                        <img src="https://images.pexels.com/photos/16552840/pexels-photo-16552840.jpeg?auto=compress&cs=tinysrgb&h=400&w=300" alt="Черновые работы" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500">
+                    </div>
+                    <div class="flex items-center gap-3 mb-2">
+                        <i data-lucide="layers" class="w-6 h-6 text-orange"></i>
+                        <h3 class="font-bold text-xs uppercase tracking-wider">Черновые и чистовые</h3>
+                    </div>
+                </div>
+
+                <div class="group cursor-pointer">
+                    <div class="relative h-64 overflow-hidden mb-4">
+                        <img src="https://images.pexels.com/photos/36573009/pexels-photo-36573009.jpeg?auto=compress&cs=tinysrgb&h=400&w=300" alt="Санузлы" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500">
+                    </div>
+                    <div class="flex items-center gap-3 mb-2">
+                        <i data-lucide="bath" class="w-6 h-6 text-orange"></i>
+                        <h3 class="font-bold text-xs uppercase tracking-wider">Санузлы</h3>
+                    </div>
+                </div>
+
+                <div class="group cursor-pointer">
+                    <div class="relative h-64 overflow-hidden mb-4">
+                        <img src="https://images.pexels.com/photos/31149584/pexels-photo-31149584.jpeg?auto=compress&cs=tinysrgb&h=400&w=300" alt="Электрика" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500">
+                    </div>
+                    <div class="flex items-center gap-3 mb-2">
+                        <i data-lucide="zap" class="w-6 h-6 text-orange"></i>
+                        <h3 class="font-bold text-xs uppercase tracking-wider">Электрика</h3>
+                    </div>
+                </div>
+
+                <div class="group cursor-pointer">
+                    <div class="relative h-64 overflow-hidden mb-4">
+                        <img src="https://images.pexels.com/photos/38241074/pexels-photo-38241074.jpeg?auto=compress&cs=tinysrgb&h=400&w=300" alt="Отделка" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500">
+                    </div>
+                    <div class="flex items-center gap-3 mb-2">
+                        <i data-lucide="paint-roller" class="w-6 h-6 text-orange"></i>
+                        <h3 class="font-bold text-xs uppercase tracking-wider">Отделка</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 bg-black">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+                <div>
+                    <h2 class="text-4xl font-extrabold uppercase mb-6 tracking-tight">Наши <br> <span class="text-orange">проекты</span></h2>
+                    <p class="text-gray-400 max-w-sm">Каждый проект — это внимание к деталям и точное исполнение. Смотрим результат, которым гордимся.</p>
+                </div>
+                <div class="flex gap-4">
+                    <a href="#" class="text-orange uppercase text-xs font-bold tracking-widest flex items-center gap-2 group">
+                        Смотреть все проекты <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="relative group cursor-pointer overflow-hidden">
+                    <img src="https://images.pexels.com/photos/34457749/pexels-photo-34457749.jpeg?auto=compress&cs=tinysrgb&h=600&w=800" alt="Project 1" class="w-full aspect-[4/3] object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-8">
+                        <h3 class="text-xl font-bold mb-1">ЖК БЕРЕГ</h3>
+                        <p class="text-gray-400 text-sm">120 м² / Квартира</p>
+                        <div class="mt-4 flex justify-between items-center opacity-0 group-hover:opacity-100 transition duration-300">
+                            <span class="text-orange text-xs font-bold uppercase tracking-widest">Подробнее</span>
+                            <i data-lucide="arrow-up-right" class="w-5 h-5 text-orange"></i>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="relative group cursor-pointer overflow-hidden">
+                    <img src="https://images.pexels.com/photos/33344557/pexels-photo-33344557.jpeg?auto=compress&cs=tinysrgb&h=600&w=800" alt="Project 2" class="w-full aspect-[4/3] object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-8">
+                        <h3 class="text-xl font-bold mb-1">ЛОФТ 72 М²</h3>
+                        <p class="text-gray-400 text-sm">72 м² / Апартаменты</p>
+                        <div class="mt-4 flex justify-between items-center opacity-0 group-hover:opacity-100 transition duration-300">
+                            <span class="text-orange text-xs font-bold uppercase tracking-widest">Подробнее</span>
+                            <i data-lucide="arrow-up-right" class="w-5 h-5 text-orange"></i>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="relative group cursor-pointer overflow-hidden">
+                    <img src="https://images.pexels.com/photos/36601408/pexels-photo-36601408.jpeg?auto=compress&cs=tinysrgb&h=600&w=800" alt="Project 3" class="w-full aspect-[4/3] object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-8">
+                        <h3 class="text-xl font-bold mb-1">КВАРТИРА ДЛЯ СЕМЬИ</h3>
+                        <p class="text-gray-400 text-sm">95 м² / Квартира</p>
+                        <div class="mt-4 flex justify-between items-center opacity-0 group-hover:opacity-100 transition duration-300">
+                            <span class="text-orange text-xs font-bold uppercase tracking-widest">Подробнее</span>
+                            <i data-lucide="arrow-up-right" class="w-5 h-5 text-orange"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 flex justify-end gap-4">
+                <button class="w-12 h-12 border border-white/20 flex items-center justify-center hover:bg-orange hover:border-orange transition">
+                    <i data-lucide="chevron-left"></i>
+                </button>
+                <button class="w-12 h-12 border border-white/20 flex items-center justify-center hover:bg-orange hover:border-orange transition">
+                    <i data-lucide="chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- How we work -->
+    <section id="process" class="py-24 bg-[#111]">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+                <div>
+                    <h2 class="text-4xl font-extrabold uppercase mb-6 tracking-tight">Как мы <br> <span class="text-orange">работаем</span></h2>
+                    <p class="text-gray-400 max-w-sm">Прозрачный процесс на каждом этапе.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-0 relative">
+                <!-- Step 1 -->
+                <div class="relative p-8 border-l border-white/10 md:border-l-0 md:border-r border-t border-b border-white/10 group hover:bg-white/5 transition">
+                    <div class="flex items-center gap-4 mb-6">
+                         <div class="text-2xl font-black text-white/20 group-hover:text-orange transition">01</div>
+                         <div class="flex-1 h-px dashed-line"></div>
+                    </div>
+                    <div class="mb-4 text-orange">
+                        <i data-lucide="message-square" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-sm font-bold uppercase mb-4 tracking-widest">Заявка и консультация</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed">Вы оставляете заявку, мы уточняем детали и задачи.</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="relative p-8 border-l border-white/10 md:border-l-0 md:border-r border-t border-b border-white/10 group hover:bg-white/5 transition">
+                    <div class="flex items-center gap-4 mb-6">
+                         <div class="text-2xl font-black text-white/20 group-hover:text-orange transition">02</div>
+                         <div class="flex-1 h-px dashed-line"></div>
+                    </div>
+                    <div class="mb-4 text-orange">
+                        <i data-lucide="ruler" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-sm font-bold uppercase mb-4 tracking-widest">Замер и смета</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed">Выезжаем на объект, делаем замеры и готовим смету.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="relative p-8 border-l border-white/10 md:border-l-0 md:border-r border-t border-b border-white/10 group hover:bg-white/5 transition">
+                    <div class="flex items-center gap-4 mb-6">
+                         <div class="text-2xl font-black text-white/20 group-hover:text-orange transition">03</div>
+                         <div class="flex-1 h-px dashed-line"></div>
+                    </div>
+                    <div class="mb-4 text-orange">
+                        <i data-lucide="file-signature" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-sm font-bold uppercase mb-4 tracking-widest">Договор и план</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed">Фиксируем сроки, смету и этапы работ в договоре.</p>
+                </div>
+                <!-- Step 4 -->
+                <div class="relative p-8 border-l border-white/10 md:border-l-0 md:border-r border-t border-b border-white/10 group hover:bg-white/5 transition">
+                    <div class="flex items-center gap-4 mb-6">
+                         <div class="text-2xl font-black text-white/20 group-hover:text-orange transition">04</div>
+                         <div class="flex-1 h-px dashed-line"></div>
+                    </div>
+                    <div class="mb-4 text-orange">
+                        <i data-lucide="hard-hat" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-sm font-bold uppercase mb-4 tracking-widest">Выполнение работ</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed">Выполняем работы строго по плану, с контролем качества.</p>
+                </div>
+                <!-- Step 5 -->
+                <div class="relative p-8 border-l border-white/10 md:border-l-0 border-t border-b border-white/10 group hover:bg-white/5 transition">
+                    <div class="flex items-center gap-4 mb-6">
+                         <div class="text-2xl font-black text-white/20 group-hover:text-orange transition">05</div>
+                    </div>
+                    <div class="mb-4 text-orange">
+                        <i data-lucide="check-circle" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-sm font-bold uppercase mb-4 tracking-widest">Сдача объекта</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed">Вы принимаете работу, получаете гарантию и рекомендации.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="py-16 bg-black border-y border-white/5">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-8">
+                <div class="text-center">
+                    <div class="text-4xl md:text-5xl font-black text-orange mb-2">8+</div>
+                    <div class="text-[10px] uppercase font-bold tracking-widest text-gray-400">Лет на рынке</div>
+                </div>
+                <div class="text-center border-l border-white/10">
+                    <div class="text-4xl md:text-5xl font-black text-orange mb-2">420+</div>
+                    <div class="text-[10px] uppercase font-bold tracking-widest text-gray-400">Реализованных проектов</div>
+                </div>
+                <div class="text-center border-l border-white/10">
+                    <div class="text-4xl md:text-5xl font-black text-orange mb-2">95%</div>
+                    <div class="text-[10px] uppercase font-bold tracking-widest text-gray-400">Клиентов рекомендуют нас</div>
+                </div>
+                <div class="text-center border-l border-white/10">
+                    <div class="text-4xl md:text-5xl font-black text-orange mb-2">до 5 лет</div>
+                    <div class="text-[10px] uppercase font-bold tracking-widest text-gray-400">Гарантия на работы</div>
+                </div>
+                <div class="text-center border-l border-white/10">
+                    <div class="text-4xl md:text-5xl font-black text-orange mb-2">ТОЧНО</div>
+                    <div class="text-[10px] uppercase font-bold tracking-widest text-gray-400">Соблюдаем сроки</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="about" class="py-24 bg-[#1a1a1a]">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="relative">
+                    <div class="absolute -top-10 -left-10 text-9xl font-black text-white/5 z-0 select-none">EXPERT</div>
+                    <div class="relative z-10 border-l-4 border-orange pl-12">
+                        <h2 class="text-4xl font-extrabold uppercase mb-8 tracking-tight">Кто у вас <br> <span class="text-orange">будет работать</span></h2>
+                        <p class="text-gray-400 mb-8 leading-relaxed">
+                            Опытные мастера с профильным образованием и стажем от 8 лет. Работаем без вредных привычек. На объектах чистота и порядок.
+                        </p>
+                        <div class="flex items-center gap-6">
+                            <img src="https://images.pexels.com/photos/7752839/pexels-photo-7752839.jpeg?auto=compress&cs=tinysrgb&h=200&w=200" alt="Aleksei Sokolov" class="w-32 h-32 object-cover rounded-full grayscale border-2 border-orange">
+                            <div>
+                                <h3 class="text-xl font-bold uppercase">Алексей Соколов</h3>
+                                <p class="text-orange text-sm font-bold mb-2">Прораб</p>
+                                <ul class="text-xs text-gray-400 space-y-1">
+                                    <li>• Опыт в строительстве — 15 лет</li>
+                                    <li>• Более 120 сданных объектов</li>
+                                    <li>• Контроль качества на каждом этапе</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <img src="https://images.pexels.com/photos/16552856/pexels-photo-16552856.jpeg?auto=compress&cs=tinysrgb&h=400&w=400" alt="Process" class="w-full aspect-square object-cover grayscale opacity-50">
+                    <img src="https://images.pexels.com/photos/16552841/pexels-photo-16552841.jpeg?auto=compress&cs=tinysrgb&h=400&w=400" alt="Tools" class="w-full aspect-square object-cover grayscale opacity-50">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="py-24 bg-black">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+                <div>
+                    <h2 class="text-4xl font-extrabold uppercase mb-6 tracking-tight">Отзывы <br> <span class="text-orange">клиентов</span></h2>
+                    <p class="text-gray-400 max-w-sm">Более 100 реальных отзывов на независимых площадках.</p>
+                </div>
+                <a href="#" class="text-orange uppercase text-xs font-bold tracking-widest flex items-center gap-2 group">
+                    Читать все отзывы <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="bg-[#111] p-8 relative">
+                    <div class="text-orange mb-6"><i data-lucide="quote" class="w-8 h-8 opacity-50"></i></div>
+                    <p class="text-sm text-gray-300 mb-8 italic">"Ребята сделали ремонт в нашей квартире «под ключ». Всё чётко, в срок и без сюрпризов. Качество на высоте!"</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-orange/20 rounded-full flex items-center justify-center font-bold text-orange">И</div>
+                        <div>
+                            <div class="font-bold text-xs uppercase">Ирина, ЖК Лайнер</div>
+                            <div class="flex gap-1 mt-1">
+                                <i data-lucide="star" class="w-3 h-3 text-orange fill-orange"></i>
+                                <i data-lucide="star" class="w-3 h-3 text-orange fill-orange"></i>
+                                <i data-lucide="star" class="w-3 h-3 text-orange fill-orange"></i>
+                                <i data-lucide="star" class="w-3 h-3 text-orange fill-orange"></i>
+                                <i data-lucide="star" class="w-3 h-3 text-orange fill-orange"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 2 -->
+                <div class="bg-[#111] p-8 relative">
+                    <div class="text-orange mb-6"><i data-lucide="quote" class="w-8 h-8 opacity-50"></i></div>
+                    <p class="text-sm text-gray-300 mb-8 italic">"Очень доволен работой команды. Профессионалы своего дела. Рекомендую!"</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-orange/20 rounded-full flex items-center justify-center font-bold text-orange">Д</div>
+                        <div>
+                            <div class="font-bold text-xs uppercase">Дмитрий, Лофт 72 м²</div>
+                            <div class="flex gap-1 mt-1">
+                                <i data-lucide="star" class="w-3 h-3 text-orange fill-orange"></i>
+                                <i data-lucide="star" class="w-3 h-3 text-orange fill-orange"></i>
+                                <i data-lucide="star" class="w-3 h-3 text-orange fill-orange"></i>
+                                <i data-lucide="star" class="w-3 h-3 text-orange fill-orange"></i>
+                                <i data-lucide="star" class="w-3 h-3 text-orange fill-orange"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 3 -->
+                <div class="bg-[#111] p-8 relative">
+                    <div class="text-orange mb-6"><i data-lucide="quote" class="w-8 h-8 opacity-50"></i></div>
+                    <p class="text-sm text-gray-300 mb-8 italic">"Быстро, качественно и по адекватной цене. Спасибо за отличный ремонт нашего дома!"</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-orange/20 rounded-full flex items-center justify-center font-bold text-orange">К</div>
+                        <div>
+                            <div class="font-bold text-xs uppercase">Семья Кузнецовых</div>
+                            <div class="flex gap-1 mt-1">
+                                <i data-lucide="star" class="w-3 h-3 text-orange fill-orange"></i>
+                                <i data-lucide="star" class="w-3 h-3 text-orange fill-orange"></i>
+                                <i data-lucide="star" class="w-3 h-3 text-orange fill-orange"></i>
+                                <i data-lucide="star" class="w-3 h-3 text-orange fill-orange"></i>
+                                <i data-lucide="star" class="w-3 h-3 text-orange fill-orange"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contacts" class="py-24 bg-[#050505] relative overflow-hidden">
+        <div class="absolute right-0 top-0 w-1/3 h-full opacity-10 pointer-events-none">
+             <img src="https://images.pexels.com/photos/33344557/pexels-photo-33344557.jpeg?auto=compress&cs=tinysrgb&h=1000&w=1000" class="w-full h-full object-cover">
+        </div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-extrabold uppercase mb-8 leading-tight">
+                        Давайте создадим <br> ваш <span class="text-orange">идеальный интерьер</span>
+                    </h2>
+                    <p class="text-gray-400 mb-12 max-w-md">Оставьте заявку — рассчитаем стоимость и ответим на все вопросы.</p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-white/5 flex items-center justify-center text-orange"><i data-lucide="phone"></i></div>
+                            <div>
+                                <div class="text-[10px] uppercase font-bold text-gray-500 tracking-widest">Звоните</div>
+                                <div class="font-bold text-sm">+7 (495) 120-25-35</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-white/5 flex items-center justify-center text-orange"><i data-lucide="mail"></i></div>
+                            <div>
+                                <div class="text-[10px] uppercase font-bold text-gray-500 tracking-widest">Пишите</div>
+                                <div class="font-bold text-sm">info@stroy-charakter.ru</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12 flex gap-4">
+                         <div class="flex items-center gap-2 text-xs text-gray-400">
+                             <i data-lucide="check" class="w-4 h-4 text-orange"></i>
+                             Бесплатный замер и консультация
+                         </div>
+                         <div class="flex items-center gap-2 text-xs text-gray-400">
+                             <i data-lucide="check" class="w-4 h-4 text-orange"></i>
+                             Никаких скрытых платежей
+                         </div>
+                    </div>
+                </div>
+
+                <div class="bg-white/5 p-10 border border-white/10 backdrop-blur-sm">
+                    <h3 class="text-xl font-bold uppercase mb-8 tracking-wider">Оставьте заявку</h3>
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-[10px] uppercase font-bold text-gray-500 mb-2 tracking-widest">Ваше имя</label>
+                                <input type="text" class="w-full bg-white/5 border-b border-white/20 py-3 text-white focus:border-orange transition" placeholder="Иван">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] uppercase font-bold text-gray-500 mb-2 tracking-widest">Телефон</label>
+                                <input type="tel" class="w-full bg-white/5 border-b border-white/20 py-3 text-white focus:border-orange transition" placeholder="+7 (___) ___-__-__">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-[10px] uppercase font-bold text-gray-500 mb-2 tracking-widest">Ваш вопрос (необязательно)</label>
+                            <textarea rows="3" class="w-full bg-white/5 border-b border-white/20 py-3 text-white focus:border-orange transition" placeholder="Хочу ремонт в трехкомнатной квартире..."></textarea>
+                        </div>
+                        <button class="w-full bg-orange hover:bg-orange/90 text-white font-bold py-5 uppercase tracking-widest text-sm transition">
+                            Отправить заявку
+                        </button>
+                        <p class="text-[10px] text-gray-500 text-center">Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-black border-t border-white/5">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="font-extrabold text-lg leading-tight">
+                    СТРОЙ <br> <span class="text-orange">С ХАРАКТЕРОМ</span>
+                </div>
+                <div class="text-xs text-gray-500">
+                    © 2024 Строй с Характером. Все права защищены.
+                </div>
+                <div class="flex gap-6">
+                    <a href="#" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-orange hover:text-orange transition"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-orange hover:text-orange transition"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-orange hover:text-orange transition"><i data-lucide="send" class="w-5 h-5"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const closeMenu = document.getElementById('closeMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-full');
+        });
+
+        const hideMenu = () => {
+            mobileMenu.classList.add('translate-x-full');
+        };
+
+        closeMenu.addEventListener('click', hideMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', hideMenu));
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
